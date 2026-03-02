@@ -5,19 +5,9 @@ class Pizzeria:
     def __init__(self):
         self.menu = [
             [
-                Pizza("hawaiana", "pequeña", 10000),
-                Pizza("hawaiana", "mediana", 15000),
-                Pizza("hawaiana", "grande", 20000)
-            ],
-            [
-                Pizza("pepperoni", "pequeña", 11000),
-                Pizza("pepperoni", "mediana", 16000),
-                Pizza("pepperoni", "grande", 21000)
-            ],
-            [
-                Pizza("vegetariana", "pequeña", 12000),
-                Pizza("vegetariana", "mediana", 17000),
-                Pizza("vegetariana", "grande", 22000)
+                Pizza("hawaiana1", "pequeña",40, 10000),
+                Pizza("hawaiana2", "mediana",50, 12000),
+                Pizza("hawaiana3", "grande",60, 15000)
             ]
         ]
 
@@ -30,3 +20,16 @@ class Pizzeria:
                 if pizza.tipo.lower() == nombre_buscado.lower():
                     return (i, j)
         return None
+    
+
+    def calcular_inventario_total(self):
+        total = 0
+
+        for i in range(len(self.menu)):
+            for j in range(len(self.menu[i])):
+                producto = self.menu[i][j]
+
+                if producto is not None:
+                    total += producto.cantidad
+
+        return total

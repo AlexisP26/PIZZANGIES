@@ -1,8 +1,9 @@
 class Pizza:
-    def __init__ (self, nombre, tamaño, precio ):
+    def __init__ (self, nombre, tamaño,cantidad, precio ):
         self.tipo = nombre
         self.tamaño = tamaño
-        self.precio =precio 
+        self.cantidad = cantidad
+        self.precio = precio
 
 class Pedido:
     def __init__ (self,pizza, cantidad ):
