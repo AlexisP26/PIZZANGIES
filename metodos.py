@@ -24,12 +24,18 @@ class Pizzeria:
 
     def calcular_inventario_total(self):
         total = 0
-
+        for i in range(len(Pizzeria.menu)):
+            for j in range(len(Pizza.menu[i])):
+                producto = Pizza.menu[i][j]
+                if producto is not None:
+                    total = total + producto.cantidad
+                    return total 
+    def buscar_pizza_mas_costosa(self):
+        pizza_mas_costosa = None
         for i in range(len(self.menu)):
             for j in range(len(self.menu[i])):
                 producto = self.menu[i][j]
-
                 if producto is not None:
-                    total += producto.cantidad
-
-        return total
+                    if pizza_mas_costosa is None or producto.precio > pizza_mas_costosa.precio:
+                        pizza_mas_costosa = producto
+        return pizza_mas_costosa

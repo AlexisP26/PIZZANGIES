@@ -1,6 +1,6 @@
 class Pizza:
     def __init__ (self, nombre, tamaño,cantidad, precio ):
-        self.tipo = nombre
+        self.nombre = nombre
         self.tamaño = tamaño
         self.cantidad = cantidad
         self.precio = precio

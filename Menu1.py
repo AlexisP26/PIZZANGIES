@@ -6,7 +6,8 @@ while True:
     print("\n--- MENU PRINCIPAL ---")
     print("1. Buscar pizza por nombre")
     print("2. Mostrar inventario total")
-    print("3. Salir")
+    print("3. Mostrar pizza mas costosa")
+    print("4. Salir")
 
     opcion = input("Seleccione una opcion: ")
 
@@ -26,9 +27,20 @@ while True:
     elif opcion == "2":
         total = pizzeria.calcular_inventario_total()
         print("inventario total", total)
+
+    elif opcion =="3":
+        pizza = pizzeria.buscar_pizza_mas_costosa()
+        if pizza is not None:
+            print("Pizza más costosa:")
+            print("Nombre:", pizza.nombre)
+            print("Tamaño:", pizza.tamaño)
+            print("Precio:", pizza.precio)
+        
+        else:
+            print("pizza no encontrada")
         
     
-    elif opcion == "3":
+    elif opcion == "4":
         print("Saliendo del sistema...")
         break
 
