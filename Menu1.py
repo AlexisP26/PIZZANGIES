@@ -10,7 +10,8 @@ while True:
     print("3. Mostrar pizza mas costosa")
     print("4. ordenar menu en ascendente")
     print("5. disponibilidad")
-    print("6. Salir")
+    print("6. agrupar por precio")
+    print("7. Salir")
     
     opcion = input("Seleccione una opcion: ")
 
@@ -56,8 +57,24 @@ while True:
                     print(pizza.nombre, pizza.tamaño, pizza.precio, pizza.cantidad)
         else:
             print("No hay pizzas disponibles")
+    
     elif opcion == "6":
+        e, m, p = pizzeria.agrupar_por_precio()
+
+        print("Económicas:")
+        for pizza in e:
+            print(pizza.nombre, pizza.precio)
+
+        print("Medias:")
+        for pizza in m:
+            print(pizza.nombre, pizza.precio)
+
+        print("Premium:")
+        for pizza in p:
+            print(pizza.nombre, pizza.precio)
+        else:
+            print("estas son las pizzas ordenadas por calidad")
+
+    elif opcion == "7":
         print("Saliendo del sistema...") 
         break
-    else:
-        print("Opción inválida")

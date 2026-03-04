@@ -64,4 +64,19 @@ class Pizzeria:
                 pizzas_disponibles.append(filas_que_iran_en_pizzas_disponibles)
         return pizzas_disponibles
 
-
+    def agrupar_por_precio(self):
+        economicas=[]
+        medias=[]
+        premium=[]
+        for i in range(len(self.menu)):
+            for j in range(len(self.menu[i])):
+                pizza = self.menu[i][j]
+                if pizza.precio < 10000:
+                    economicas.append(pizza)
+                elif pizza.precio >= 10000 and pizza.precio <= 30000:
+                    medias.append(pizza)
+                elif pizza.precio > 30000:
+                    premium.append(pizza)
+                else:
+                    print("valor fuera de rango")
+        return economicas, medias,premium
