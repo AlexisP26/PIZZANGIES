@@ -5,7 +5,7 @@ class Pizzeria:
     def __init__(self):
         self.menu = [
             [
-                Pizza("hawaiana1", "pequeña",40, 10000),
+                Pizza("hawaiana1", "pequeña",0, 10000),
                 Pizza("hawaiana2", "mediana",50, 12000),
                 Pizza("hawaiana3", "grande",60, 15000)
             ]
@@ -30,7 +30,6 @@ class Pizzeria:
                     return (i, j)
         return None
     
-
     def calcular_inventario_total(self):
         total = 0
         for i in range(len(self.menu)):
@@ -39,6 +38,7 @@ class Pizzeria:
                 if producto is not None:
                     total = total + producto.cantidad
                     return total 
+   
     def buscar_pizza_mas_costosa(self):
         pizza_mas_costosa = None
         for i in range(len(self.menu)):
@@ -48,5 +48,20 @@ class Pizzeria:
                     if pizza_mas_costosa is None or producto.precio > pizza_mas_costosa.precio:
                         pizza_mas_costosa = producto
         return pizza_mas_costosa
+   
     def ordenar_ascendente(self):
         self.menu[0].sort(key=lambda x : x.precio) 
+
+    def Disponibilidad(self):
+        pizzas_disponibles=[]
+        for i in range(len(self.menu)):
+            filas_que_iran_en_pizzas_disponibles=[]
+            for j in range(len(self.menu[i])):
+                pizza = self.menu[i][j]
+                if pizza.disponibilidad == True:
+                    filas_que_iran_en_pizzas_disponibles.append(pizza)
+            if filas_que_iran_en_pizzas_disponibles:
+                pizzas_disponibles.append(filas_que_iran_en_pizzas_disponibles)
+        return pizzas_disponibles
+
+

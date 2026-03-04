@@ -4,6 +4,7 @@ class Pizza:
         self.tamaño = tamaño
         self.cantidad = cantidad
         self.precio = precio
+        self.disponibilidad = cantidad > 0
 
 class Pedido:
     def __init__ (self,pizza, cantidad ):

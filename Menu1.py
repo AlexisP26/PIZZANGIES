@@ -8,9 +8,10 @@ while True:
     print("1. Buscar pizza por nombre")
     print("2. Mostrar inventario total")
     print("3. Mostrar pizza mas costosa")
-    print("4. Salir")
-    print("5. ordenar menu en ascendente")
-
+    print("4. ordenar menu en ascendente")
+    print("5. disponibilidad")
+    print("6. Salir")
+    
     opcion = input("Seleccione una opcion: ")
 
     if opcion == "0":
@@ -43,13 +44,20 @@ while True:
         else:
             print("pizza no encontrada")
         
-    
     elif opcion == "4":
-        print("Saliendo del sistema...")
-        break
-    elif opcion == "5":
         matriz_ordenada = pizzeria.ordenar_ascendente()
         print("Menú ordenado en ascendente por precio:")
+    elif opcion == "5":
+        disponibles = pizzeria.Disponibilidad()
 
+        if disponibles:
+            for fila in disponibles:
+                for pizza in fila:
+                    print(pizza.nombre, pizza.tamaño, pizza.precio, pizza.cantidad)
+        else:
+            print("No hay pizzas disponibles")
+    elif opcion == "6":
+        print("Saliendo del sistema...") 
+        break
     else:
         print("Opción inválida")
