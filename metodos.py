@@ -17,7 +17,15 @@ class Pizzeria:
         ]
 
 
-        self.pedidos = []
+        self.pedidos = [[Pedido(Pizza("hawaiana1", "pequeña",0, 10000, True), 2),
+                        Pedido(Pizza("hawaiana2", "mediana",50, 12000, False), 1),
+                        Pedido(Pizza("hawaiana3", "grande",60, 15000, False), 3),
+                        Pedido(Hamburguesa("clasica", "pequeña",10, 8000, True), 4),],
+
+                        [Pedido(Hamburguesa("especial", "mediana",20, 10000, False), 2),
+                        Pedido(Hamburguesa("vip", "grande",15, 15000, False), 1), 
+                        Pedido(Pizza("hawaiana3", "grande",60, 15000, False), 3)
+                        ]]
 
     def mostrar_menu(self):
         print("---- MENÚ DE PIZZAS ----")
@@ -132,4 +140,17 @@ class Pizzeria:
                 if todos_los_productos.oferta == True:
                     contador += 1
         return contador
+
+    def vendedor_con_mas_ventas(self, pedidos):
+        total_del_mayor_vendedor = 0
+        mejor_vendedor = None
+        for i in range(len(pedidos)):
+            suma=0
+            for j in range(pedidos[i]):
+                pedido = pedidos[i][j]
+                suma+= pedido.total
+                if suma > total_del_mayor_vendedor:
+                    total_del_mayor_vendedor=suma
+                    mejor_vendedor = i
+        return mejor_vendedor, total_del_mayor_vendedor
 

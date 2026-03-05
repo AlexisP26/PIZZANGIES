@@ -13,8 +13,9 @@ while True:
     print("6. agrupar por precio")
     print("7. agregar producto ")
     print("8. cantidad de productos en oferta ")
+    print("9. vendedor con mas productos vendidos")
 
-    print("9. Salir")
+    print("10. Salir")
     
     opcion = input("Seleccione una opcion: ")
 
@@ -51,6 +52,7 @@ while True:
     elif opcion == "4":
         matriz_ordenada = pizzeria.ordenar_ascendente()
         print("Menú ordenado en ascendente por precio:")
+    
     elif opcion == "5":
         disponibles = pizzeria.Disponibilidad()
 
@@ -85,7 +87,11 @@ while True:
         productos_en_oferta = pizzeria.contar_productos_en_oferta()
         print("la cantidad de productos en oferta es", productos_en_oferta)
     
+    elif opcion == "9":
+        vendedor_del_mes , total_de_ventas = pizzeria.vendedor_con_mas_ventas(pedidos)
+        print(vendedor_del_mes)
+        print(total_de_ventas)
     
-    elif opcion == "8":
+    elif opcion == "10":
         print("Saliendo del sistema...") 
         break
