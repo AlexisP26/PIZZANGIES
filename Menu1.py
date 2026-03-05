@@ -11,7 +11,8 @@ while True:
     print("4. ordenar menu en ascendente")
     print("5. disponibilidad")
     print("6. agrupar por precio")
-    print("7. Salir")
+    print("7. agregar producto ")
+    print("8. Salir")
     
     opcion = input("Seleccione una opcion: ")
 
@@ -76,5 +77,9 @@ while True:
             print("estas son las pizzas ordenadas por calidad")
 
     elif opcion == "7":
+        pizzeria.agregar_producto()
+    
+    
+    elif opcion == "8":
         print("Saliendo del sistema...") 
         break

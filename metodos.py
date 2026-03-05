@@ -1,15 +1,20 @@
 from clase import Pizza
 from clase import Pedido
-
+from clase import Hamburguesa
 class Pizzeria:
     def __init__(self):
         self.menu = [
             [
                 Pizza("hawaiana1", "pequeña",0, 10000),
                 Pizza("hawaiana2", "mediana",50, 12000),
-                Pizza("hawaiana3", "grande",60, 15000)
+                Pizza("hawaiana3", "grande",60, 15000), 
+                Hamburguesa("clasica", "pequeña",10, 8000),
+                Hamburguesa("especial", "mediana",20, 10000),
+                Hamburguesa("vip", "grande",15, 15000)
+
             ]
         ]
+
 
         self.pedidos = []
 
@@ -80,3 +85,42 @@ class Pizzeria:
                 else:
                     print("valor fuera de rango")
         return economicas, medias,premium
+    
+    def organizar_por_tamaño(self):
+        pequeñas = []
+        medianas = []
+        grandes = []
+
+        for producto in self.productos:
+            if producto.tamaño == "pequeña":
+                pequeñas.append(producto)
+
+            elif producto.tamaño == "mediana":
+                medianas.append(producto)
+
+            elif producto.tamaño == "grande":
+                grandes.append(producto)
+
+        self.menu = [
+            pequeñas,
+            medianas,
+            grandes
+        ]
+
+    def agregar_producto(self):
+        nombre = input("ingrese el nombre que le va dar al producto")
+        tamaño = input("ingrese el tamaño que le va dar al producto")
+        precio = float(input("ingrese el precio que le va dar al producto"))
+        cantidad = int(input("ingrese la cantidad que le va dar al producto"))
+        producto = input("escriba que tipo de producto quiere crear: pizza o hamburguesa")
+        if producto.lower() == "pizza":
+            producto = Pizza(nombre, tamaño, precio, cantidad)
+
+        elif producto.lower == "hamburguesa":
+            producto = Hamburguesa(nombre, tamaño, precio, cantidad)
+        else:
+            print("producto no encontrado")
+        self.menu[0].append(producto)
+        print("producto agregado con exito")
+
+
