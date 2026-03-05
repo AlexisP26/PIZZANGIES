@@ -59,7 +59,8 @@ while True:
         if disponibles:
             for fila in disponibles:
                 for pizza in fila:
-                    print(pizza.nombre, pizza.tamaño, pizza.precio, pizza.cantidad)
+                    print(pizza.nombre, pizza.tamaño, pizza.precio, pizza.cantidad,
+                           pizza.oferta)
         else:
             print("No hay pizzas disponibles")
     
@@ -88,7 +89,8 @@ while True:
         print("la cantidad de productos en oferta es", productos_en_oferta)
     
     elif opcion == "9":
-        vendedor_del_mes , total_de_ventas = pizzeria.vendedor_con_mas_ventas(pedidos)
+        vendedor_del_mes , total_de_ventas = pizzeria.vendedor_con_mas_ventas(
+            pizzeria.pedidos)
         print(vendedor_del_mes)
         print(total_de_ventas)
     

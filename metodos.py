@@ -146,11 +146,11 @@ class Pizzeria:
         mejor_vendedor = None
         for i in range(len(pedidos)):
             suma=0
-            for j in range(pedidos[i]):
+            for j in range(len(pedidos[i])):
                 pedido = pedidos[i][j]
                 suma+= pedido.total
-                if suma > total_del_mayor_vendedor:
-                    total_del_mayor_vendedor=suma
-                    mejor_vendedor = i
+            if suma > total_del_mayor_vendedor:
+                total_del_mayor_vendedor=suma
+                mejor_vendedor = i
         return mejor_vendedor, total_del_mayor_vendedor
 
