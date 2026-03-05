@@ -1,16 +1,17 @@
 from clase import Pizza
 from clase import Pedido
 from clase import Hamburguesa
+
 class Pizzeria:
     def __init__(self):
         self.menu = [
             [
-                Pizza("hawaiana1", "pequeña",0, 10000),
-                Pizza("hawaiana2", "mediana",50, 12000),
-                Pizza("hawaiana3", "grande",60, 15000), 
-                Hamburguesa("clasica", "pequeña",10, 8000),
-                Hamburguesa("especial", "mediana",20, 10000),
-                Hamburguesa("vip", "grande",15, 15000)
+                Pizza("hawaiana1", "pequeña",0, 10000, True),
+                Pizza("hawaiana2", "mediana",50, 12000, False),
+                Pizza("hawaiana3", "grande",60, 15000, False), 
+                Hamburguesa("clasica", "pequeña",10, 8000, True),
+                Hamburguesa("especial", "mediana",20, 10000, False),
+                Hamburguesa("vip", "grande",15, 15000, False)
 
             ]
         ]
@@ -123,4 +124,12 @@ class Pizzeria:
         self.menu[0].append(producto)
         print("producto agregado con exito")
 
+    def contar_productos_en_oferta(self):
+        contador = 0
+        for i in range(len(self.menu)):
+            for j in range(len(self.menu[i])):
+                todos_los_productos = self.menu[i][j]
+                if todos_los_productos.oferta == True:
+                    contador += 1
+        return contador
 

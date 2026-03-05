@@ -12,7 +12,9 @@ while True:
     print("5. disponibilidad")
     print("6. agrupar por precio")
     print("7. agregar producto ")
-    print("8. Salir")
+    print("8. cantidad de productos en oferta ")
+
+    print("9. Salir")
     
     opcion = input("Seleccione una opcion: ")
 
@@ -78,6 +80,10 @@ while True:
 
     elif opcion == "7":
         pizzeria.agregar_producto()
+
+    elif opcion == "8":
+        productos_en_oferta = pizzeria.contar_productos_en_oferta()
+        print("la cantidad de productos en oferta es", productos_en_oferta)
     
     
     elif opcion == "8":
